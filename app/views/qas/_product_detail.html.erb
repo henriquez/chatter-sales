@@ -1,7 +1,7 @@
 <div class="span-8 last left-sidebar" >
 	<%= form_tag(qa_path('0'), :method => "get", :id => 'engine_picker' ) do %>
 	  <%= label_tag(:engine, "Select Product") %>&nbsp;&nbsp;
-  	  <%= select "engine", "id", records_for_picker(@records), { :selected => @selected_engine },   {:class => "pretty" } %>
+  	  <%= select "engine", "index", records_for_picker(@records), { :selected => @selected_engine },   {:class => "pretty" } %>
     <% end %>	
 </div>
 

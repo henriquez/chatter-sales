@@ -4,7 +4,7 @@ class QasController < ApplicationController
   def show
     user = User.qa_app_user
     @records = Qa.get_records(user) # populate the picker with all engines
-    @selected_engine = params[:engine] ? params[:engine][:id].to_i : 0 # integer index to @records
+    @selected_engine = params[:engine] ? params[:engine][:index].to_i : 0 # integer index to @records
     # always show the first engine in the picker's feed - second element is record id
     @chatouts = Qa.get_record_feed(user, @records[@selected_engine]['Id'] ) 
   end
@@ -28,7 +28,7 @@ class QasController < ApplicationController
     #                  :email => params[:email], 
     #                  :name => params[:name]
     @records = Qa.get_records(user) # populate the picker
-    @selected_engine = params[:engine] ? params[:engine][:id].to_i : 0 # integer index
+    @selected_engine = params[:engine_index].to_i # integer index
     @chatouts = Qa.get_record_feed(user, @records[@selected_engine]['Id'] )  # get the feed
     render :action => 'show' # show the Q&A page again  
   end

@@ -9,7 +9,7 @@ jQuery(function() {
 
 
    // submit form to qas#show when engine picker is changed
-    $('select#engine_id').change( function() {
+    $('select#engine_index').change( function() {
       $('form#engine_picker').submit();
     });
 
