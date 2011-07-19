@@ -31,38 +31,43 @@ jQuery(function() {
     $( "#tabs" ).tabs();  // inside the _header partial, top of page
 
     // Callouts
-    $( "#products-header" ).callout({
-	    position: "bottom", 
-	    msg: "This demo app illustrates how Chatter can be integrated into a product information site using the Chatter API.  <a id='walkthru-1'>Start Walkthrough</a> ",
-	    width: 300
-	});
-	
-	// hide the first callout when start is clicked
-	// and show the second callout
-	$( "#walkthru-1" ).click(function() { 
-		$( "#products-header" ).callout("hide");
-		
-		$( "#product-description" ).callout({
-	        position: "right", 
-	        width: 300,
-	        msg: "Product descriptions and specifications are pulled from a custom object in Salesforce.  Updates to product specifications appear as tracked changes in the feed associated with this product, allowing the external website to be updated from Salesforce. Buyers who follow this product to get notified when a design change may affect them.  <a id='walkthru-2'>Next</a> "
-	    });
-	
-    	// the previous callout doesn't exist at load time, so have to add
-		// the click event to it after the above method is called.
-		$( "#walkthru-2" ).click(function() { 
-			$( "#product-description" ).callout("hide");
-			$( "#feed-items" ).callout({
-		        position: "left", 
-		        width: 200,
-		        align: "top",
-		        msg: "Each product has a feed, letting prospective buyers ask questions.  Questions are relayed into the Salesforce org so the sales team can answer them in Chatter.  Customers leverage previous Q&A around a product by searching for answers. "
-		    });
+    if ($.cookie('walkthru_done') != "true") {
+	    $( "#products-header" ).callout({
+		    position: "bottom", 
+		    msg: "This demo app illustrates how Chatter can be integrated into a product information site using the Chatter API.  <a id='walkthru-1'>Start Walkthrough</a> ",
+		    width: 300
 		});
-	});
 	
-
+		// hide the first callout when start is clicked
+		// and show the second callout
+		$( "#walkthru-1" ).click(function() { 
+			$( "#products-header" ).callout("hide");
 		
+			$( "#product-description" ).callout({
+		        position: "right", 
+		        width: 300,
+		        msg: "Product descriptions and specifications are pulled from a custom object in Salesforce.  Updates to product specifications appear as tracked changes in the feed associated with this product, allowing the external website to be updated from Salesforce. Buyers who follow this product to get notified when a design change may affect them.  <a id='walkthru-2'>Next</a> "
+		    });
+	
+	    	// the previous callout doesn't exist at load time, so have to add
+			// the click event to it after the above method is called.
+			$( "#walkthru-2" ).click(function() { 
+				$( "#product-description" ).callout("hide");
+				$( "#feed-items" ).callout({
+			        position: "left", 
+			        width: 200,
+			        align: "top",
+			        msg: "Each product has a feed, letting prospective buyers ask questions.  Questions are relayed into the Salesforce org so the sales team can answer them in Chatter.  Customers leverage previous Q&A around a product by searching for answers. See the tab on the far left for more info about this app."
+			    });
+			    $.cookie("walkthru_done", "true");
+			});
+		});
+	};
+	
+   $('#follow-button').click(function() {
+	 alert('When a customer follows a product they might be asked for their email to receive alerts, or they if they wanted to receive notifications in Twitter or Chatter they could select those options.');
+   });
+	
 });
 
 
