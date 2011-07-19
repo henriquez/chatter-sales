@@ -188,6 +188,19 @@ a.side-box {
      font-weight: 600;
 }
 
+.callout {
+    padding: 7px;
+    border: 1px solid #7992B0;
+    background-color: Beige;
+    margin-left: 0px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    box-shadow:         5px 5px 10px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow:    5px 5px 10px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+}
+
 /**********************************************/
 /***  Left Sidebar ****************************/
 /**********************************************/
