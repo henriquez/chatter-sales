@@ -11,7 +11,7 @@ gem 'oauth2', '~> 0.4.1'  # due to faraday fix which requires 0.6.1
 gem 'faraday', '>= 0.6.1'
 gem 'jquery-rails', '>= 0.2.6'
 
-gem 'rake', '= 0.8.7'  # due to bug in 0.9 
+gem 'rake', '12.3.3' # due to bug in 0.9 
 
 # Use unicorn as the web server
 # gem 'unicorn'
